@@ -134,7 +134,7 @@ You can upload your existing world to the VM:
 You should register the Valheim Dedicated Server as a "Daemon" to automatically start the server when your VM boots up and to cleanly(!) stop the server when the VM shuts down.  
 Otherwise your world might get corrupted when the VM is shut down.  
 
-For this you need two scripts: <a href="../start_server_custom.sh">start_server_custom.sh</a> and <a href="../valheim.sh">valheim.sh</a> (download these to your local PC)  
+For this you need two scripts: <a href="./start_server_custom.sh">start_server_custom.sh</a> and <a href="./valheim.sh">valheim.sh</a> (download these to your local PC: https://github.com/Chris-D-Turk/Valheim.Google.Cloud/archive/refs/heads/master.zip)  
 The start_server_custom.sh is a modified version of the start_server.sh that is shipped with the Valheim Dedicated Server.  
 The valheim.sh is the actual "Daemon" that is run by the OS on startup/shutdown.  
 
