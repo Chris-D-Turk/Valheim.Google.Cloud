@@ -34,6 +34,15 @@ You can also select a bigger configuration, as your first 90 days are free nonet
 The VM should appear as online after some seconds:
 <img src="./screenshots/vm-created.png" alt="vm-created.png" width="400px" />
 
+## Connect via SSH
+For some of the following steps you will need a SSH connection to your VM (to execute shell commands)
+- Goto https://console.cloud.google.com/compute/instances 
+- Click "SSH" next to your VM
+
+The remote shell should open in a new browser window:
+<br/>
+<img src="./screenshots/connect-ssh.png" alt="connect-ssh.png" height="200px" />
+
 ## Port Forwarding
 You need to forward the UDP ports 2456-2457 in the firewall settings to allow players to connect:
 - Goto https://console.cloud.google.com/networking/firewalls
@@ -54,6 +63,30 @@ If you want your server to always have the same IP:
 <img src="./screenshots/static-ip.png" alt="static-ip.png" width="400px" />
 
 ❗ **Note:** Static IPs increase the monthly fee (after trial phase) 
+
+## Optional: Setup DynDNS
+Instead of a static IP you can setup a DynDNS service so that your server is always reachable at the same host name.  
+The following example uses noip.com (up to 3 DNS entries for free - but the entries need to be "confirmed" every 30 days).
+- Goto https://www.noip.com/remote-access
+- Create an account
+- After you verified your account, you will be asked to create your first DNS entry (e.g. "epicvalheim.hopto.org")
+
+Now you will need to install the [No-IP Dynamic Update Client](https://www.noip.com/support/knowledgebase/installing-the-linux-dynamic-update-client/) that will regulary transmit the VM's current IP to no-ip.com so that your DNS entry stays connected with your VM.  
+- Enter the following command in the SSH window:
+```bash
+sudo apt install build-essential
+
+cd /usr/local/src
+curl -sqL "http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz" | sudo tar xzf -
+
+cd noip-2.1.9-1
+sudo make
+sudo make install
+sudo noip2 -C
+```
+Enter your No-IP user/password when asked.  
+The Dynamic Update Client ("noip2") will be started in "start_server_custom.sh" script (see [Setup Dedicated Server Daemon](#setup-dedicated-server-daemon))
+
 
 ## Optional: Schedule Start/Stop
 The start_server_custom.sh script (see below) automatically performs a worlds backup on shutdown. 
@@ -76,15 +109,6 @@ You can skip this step, if you don't want automatic backups and want the VM to r
 Select the created schedule and add your VM to it:
 
 <img src="./screenshots/attach-vm-to-schedule.png" alt="attach-vm-to-schedule.png" height="200px" />
-
-## Connect via SSH
-For the following steps you need to connect to your VM via SSH
-- Goto https://console.cloud.google.com/compute/instances 
-- Click "SSH" next to your VM
-
-The remote shell should open in a new browser window:
-<br/>
-<img src="./screenshots/connect-ssh.png" alt="connect-ssh.png" height="200px" />
 
 ## Install SteamCMD
 Execute the following commands to install [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux):
