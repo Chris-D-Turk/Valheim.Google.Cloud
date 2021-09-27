@@ -235,3 +235,4 @@ Useful commands:
 - start/stop the Valheim Daemon: `sudo systemctl start/stop valheim.service` 
 - check the logs: `cat /var/log/messages | grep -i "valheim-daemon"`
 - view all processes (the server should appear as 'valheim_server'): `top`
+- check if the valheim process is running: `ps -A | grep -i "valheim"`
