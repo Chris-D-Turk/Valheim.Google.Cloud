@@ -8,6 +8,8 @@ Some notes before we start:
    - You can also greatly reduce the price by using "preemtible" machine types:
 [Price Calculator](https://cloud.google.com/products/calculator/#id=e05a6b08-0508-4806-8ffa-d06b9d558fbc)  
 (Preemtible VMs may get stopped by Google if the Google Cloud platform runs low on resources - see [What is a preemptible instance?](https://cloud.google.com/compute/docs/instances/preemptible?authuser=1#what_is_a_preemptible_instance) )
+   - **Note:** After your free trial, you will be charged only if you upgrade to a paid account (see [Billing](https://console.cloud.google.com/billing))  
+   <img src="./screenshots/billing.png" alt="billing.png" height="200px" />
 - You should be familiar with the Unix Shell as most of the initial setup and maintenance is done using SSH (Secure Shell)
 
 ## Start Google Cloud Trial
