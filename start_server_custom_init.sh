@@ -4,4 +4,4 @@ server_password=""
 world_name=""
 backup_enabled=true
 backup_remote_dir="valheim.backup"
-mega_session=
+mega_session=""

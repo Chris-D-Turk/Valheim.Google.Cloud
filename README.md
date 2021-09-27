@@ -179,6 +179,7 @@ server_name=""
 server_password=""
 world_name=""
 backup_enabled=true
+backup_remote_dir="valheim.backup"
 mega_session=""
 ```
 - **server_name**: Your server's name how it appears in the in-game server browser
