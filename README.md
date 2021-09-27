@@ -1,10 +1,10 @@
 # How to run Valheim Server in Google Cloud (90 days free trial)
-In this Tutorial you will learn how to setup a Valheim Dedicated Server in the Google Cloud
+In this tutorial you will learn how to setup a Valheim Dedicated Server in the Google Cloud
 
 Some notes before we start:
 - The server is free for 90 days only. After that you will have to pay a monthly fee based on your VM configuration and up-time (see [VM instances pricing](https://cloud.google.com/compute/vm-instance-pricing) for details)
-   - The VM configuration created in this tutorial costs ~20$ per month if you run it 24/7: [Price Calculator](https://cloud.google.com/products/calculator/#id=45012af2-24d8-460e-8ea9-a8a402db6612)
-   - But if you run the server only 2 hours a day and don't use a [static IP address](#optional-setup-static-ip) its only 1$ per month:  [Price Calculator](https://cloud.google.com/products/calculator/#id=f0837d3a-6c2c-4cae-abfa-90d50c76be90)
+   - The VM configuration created in this tutorial costs ~20$ per month, if you run it 24/7: [Price Calculator](https://cloud.google.com/products/calculator/#id=45012af2-24d8-460e-8ea9-a8a402db6612)
+   - But if you run the server only 2 hours a day and don't use a [static IP address](#optional-setup-static-ip), its only 1$ per month:  [Price Calculator](https://cloud.google.com/products/calculator/#id=f0837d3a-6c2c-4cae-abfa-90d50c76be90)
    - You can also greatly reduce the price by using "preemtible" machine types:
 [Price Calculator](https://cloud.google.com/products/calculator/#id=e05a6b08-0508-4806-8ffa-d06b9d558fbc)  
 (Preemtible VMs may get stopped by Google if the Google Cloud platform runs low on resources - see [What is a preemptible instance?](https://cloud.google.com/compute/docs/instances/preemptible?authuser=1#what_is_a_preemptible_instance) )
