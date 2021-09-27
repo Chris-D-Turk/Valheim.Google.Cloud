@@ -12,6 +12,23 @@ Some notes before we start:
    <img src="./screenshots/billing.png" alt="billing.png" height="200px" />
 - You should be familiar with the Unix Shell as most of the initial setup and maintenance is done using SSH (Secure Shell)
 
+# Table of contents
+- [Start Google Cloud Trial](#start-google-cloud-trial)
+- [Create VM](#create-vm)
+- [Connect via SSH](#connect-via-ssh)
+- [Port Forwarding](#port-forwarding)
+- [Optional: Setup Static IP](#optional-setup-static-ip)
+- [Optional: Setup DynDNS](#optional-setup-dyndns)
+- [Optional: Schedule Start/Stop](#optional-schedule-startstop)
+- [Install SteamCMD](#install-steamcmd)
+- [Install Valheim Dedicated Server](#install-valheim-dedicated-server)
+- [Create Swap File](#create-swap-file)
+- [Optional: Install MegaCMD](#optional-install-megacmd)
+- [Optional: Upload your world](#optional-upload-your-world)
+- [Setup Dedicated Server Daemon](#setup-dedicated-server-daemon)
+- [Troubleshoot](#troubleshoot)
+
+
 ## Start Google Cloud Trial
 - Goto https://console.cloud.google.com/ and login to your google account
 - Follow the instructions to setup your free trial. You will need to enter payment info (PayPal or Credit Card) - but you will not be charged before explicitly activating billing in the Cloud Console.
