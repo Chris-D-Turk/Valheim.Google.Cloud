@@ -3,8 +3,8 @@
 
 ### BEGIN INIT INFO
 # Provides:          valheim server
-# Required-Start:    $local_fs $network
-# Required-Stop:     $local_fs
+# Required-Start:    $local_fs $remote_fs $network $syslog rsyslog
+# Required-Stop:     $local_fs $remote_fs $syslog rsyslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: valheim service
@@ -22,10 +22,12 @@ case "$1" in
   start)
     log_daemon_msg "Starting Valheim Daemon..."
     start-stop-daemon --start --background --chuid "$daemon_user:$daemon_user" --pidfile "$valheim_pidfile" --exec "$daemon_exec" -- -c "exec ${daemon_args// /\\ } 2>&1 | logger -i -t valheim-daemon"
+    log_end_msg $?
     ;;
   stop)
     log_daemon_msg "Stopping Valheim Daemon..."
     start-stop-daemon --stop --retry=TERM/30/KILL/5 --pidfile "$valheim_pidfile" --exec "$daemon_exec"
+    log_end_msg $?
     ;;
   *)
     log_daemon_msg "supported options: {start|stop}"
