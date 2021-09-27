@@ -20,7 +20,8 @@ Some notes before we start:
 - Enter a suitable name for your VM like "valheim"
 - Select a region based on your players' location
 - Select a machine configuration - "e2-small" is sufficient for two players based on my experience if you enable "Memory Swapping" (see below).
-You can also select a bigger configuration, as your first 90 days are free nonetheless.
+You can also select a bigger configuration, as your first 90 days are free nonetheless.  
+**Note:** I only tested this configuration with two players - you may need a bigger machine, if you want to handle up to 10 players. You can upgrade the machine type anytime, if the VM runs low on resources (see [Changing the machine type of a VM instance](https://cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance))
 - The default boot disk (10GB / Debian 10) is fine
 - Enter the Network tag "valheim" under "Networking"
 - Click "Create"
