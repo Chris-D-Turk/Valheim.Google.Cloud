@@ -35,13 +35,13 @@ The VM should appear as online after some seconds:
 <img src="./screenshots/vm-created.png" alt="vm-created.png" width="400px" />
 
 ## Port Forwarding
-You need to forward the UDP ports 2456-2458 in the firewall settings to allow players to connect:
+You need to forward the UDP ports 2456-2457 in the firewall settings to allow players to connect:
 - Goto https://console.cloud.google.com/networking/firewalls
 - Click "Create Firewall Rule"
 - Enter a suitable name like "valheim"
 - Select "Specified target tags" as Targets and enter the tag "valheim" (same as the VM's network tag)
 - Select "IP ranges" as Source filter and enter the range "0.0.0.0/0"
-- Check "udp" and enter the range "2456-2458"
+- Check "udp" and enter the range "2456-2457"
 - Click "Create"
 
 <img src="./screenshots/create-firewall-rule.png" alt="create-firewall-rule.png" height="200px" />
