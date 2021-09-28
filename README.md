@@ -106,9 +106,17 @@ The Dynamic Update Client ("noip2") will be started in "start_server_custom.sh" 
 
 
 ## Optional: Schedule Start/Stop
-The start_server_custom.sh script (see below) automatically performs a worlds backup on shutdown. 
-So to perform a backup at least once a day, you should schedule an automatic shutdown.
+The start_server_custom.sh script (see below) automatically performs a worlds backup on shutdown.
+So to perform a backup at least once a day, you should schedule an automatic shutdown.  
 You can skip this step, if you don't want automatic backups and want the VM to run 24/7 (ok during the free trial)
+
+First you need to grant the default service account the permission to start/stop your VM: 
+- Goto https://console.cloud.google.com/iam-admin
+- Select the checkbox "Include Google-provided role grants"
+- Edit the account ending with "@compute-system.iam.gserviceaccount.com"
+- Add the role "Compute Instance Admin (v1)" and save
+
+Then create the schedule and assign your VM to it:
 - Open your VM from https://console.cloud.google.com/compute/instances  
 - Select "Instance Schedule" and click "Create Schedule"
 - Enter a suitable name like "stop-at-4am"
