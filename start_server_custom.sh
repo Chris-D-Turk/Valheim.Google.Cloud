@@ -34,6 +34,11 @@ export SteamAppId=892970
 cd ~/Steam/steamapps/common/Valheim\ dedicated\ server
 . ./start_server_custom_init.sh
 
+if [[ $auto_update = "true" ]]; then
+    log "Updating Valheim Dedicated Server..."
+    ~/Steam/steamcmd.sh +login anonymous +app_update 896660 +quit
+fi
+
 log "Initialising noip.com DynDNS..."
 sudo noip2
 

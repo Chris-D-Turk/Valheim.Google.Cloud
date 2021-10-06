@@ -230,12 +230,14 @@ world_name=""
 backup_enabled=true
 backup_remote_dir="valheim.backup"
 mega_session=""
+auto_update=true
 ```
 - **server_name**: Your server's name how it appears in the in-game server browser
 - **world_name**: Your world's name (must match the name of your world uploaded in the previous step)
 - **server_password**: The password needed to connect in-game (Minimum password length is 5 characters & Password cant be in the server name)
 - **backup_enabled**: Set this to 'false', if you don't want to backup your worlds to the mega.nz cloud
 - **mega_session**: This is the mega.nz login session ID used to upload world backups (see step "Install MegaCMD")
+- **auto_update**: Automatically update the Dedicated Server via steamcmd
 
 Then hit "Escape" and type `:wq!` to save the changes to the file.  
 Make the file executable: `chmod u+x start_server_custom_init.sh`
