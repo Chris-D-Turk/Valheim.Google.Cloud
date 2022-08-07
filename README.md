@@ -180,8 +180,8 @@ You can skip this step, if you don't want the server to automatically backup you
 
 ## Optional: Upload your world
 You can upload your existing world to the VM:
-- ZIP your existing world located at C:\Users\\[user]\AppData\LocalLow\IronGate\Valheim\worlds  
-❗ the root directory within the zip must be "worlds" for the following to work
+- ZIP your existing world located at C:\Users\\[user]\AppData\LocalLow\IronGate\Valheim\worlds_local  
+❗ the root directory within the zip must be "worlds_local" for the following to work
 - Upload the zip using the SSH window (cog symbol in the top/right corner and than "Upload File")
 - Create the Valheim config directory: `mkdir -p ~/.config/unity3d/IronGate/Valheim`
 - Navigate to the directory: `cd ~/.config/unity3d/IronGate/Valheim`

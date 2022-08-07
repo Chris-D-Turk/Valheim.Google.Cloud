@@ -19,7 +19,7 @@ function perform_backup {
     backupzip=worlds.backup.$backupdate.zip
 
     pushd ~/.config/unity3d/IronGate/Valheim
-    zip -r $backupzip worlds
+    zip -r $backupzip worlds_local
     mega-login $mega_session
     mega-put $backupzip $backup_remote_dir
     rm $backupzip
