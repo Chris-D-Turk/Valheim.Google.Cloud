@@ -140,7 +140,7 @@ Execute the following commands to install [SteamCMD](https://developer.valvesoft
 - Create Steam directory: `mkdir ~/Steam && cd ~/Steam`
 - Install SteamCMD dependencies: 
 ```
-sudo apt install lib32gcc1
+sudo apt install lib32gcc-s1
 sudo apt install zip
 sudo apt install unzip
 ```
@@ -232,6 +232,7 @@ backup_remote_dir="valheim.backup"
 mega_session=""
 auto_update=true
 ```
+TODO add crossplay param
 - **server_name**: Your server's name how it appears in the in-game server browser
 - **world_name**: Your world's name (must match the name of your world uploaded in the previous step)
 - **server_password**: The password needed to connect in-game (Minimum password length is 5 characters & Password cant be in the server name)
@@ -285,6 +286,8 @@ Now you should be able to connect to your server in-game using the External IP s
 Useful commands:
 - query the Valheim Daemon status: `sudo systemctl status valheim.service` 
 - start/stop the Valheim Daemon: `sudo systemctl start/stop valheim.service` 
-- check the logs: `cat /var/log/messages | grep -i "valheim-daemon"`
+- check the logs: `cat /var/log/messages | grep -i "valheim-daemon"` or `tail -f -n 200 /var/log/messages`
 - view all processes (the server should appear as 'valheim_server'): `top`
 - check if the valheim process is running: `ps -A | grep -i "valheim"`
+
+TODO install  libatomic1, libpulse0, and libpulse-dev for crossplay support
