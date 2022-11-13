@@ -152,6 +152,12 @@ Execute the following SteamCMD commands to install the Valheim Dedicated Server:
 - Login: `login anonymous`
 - Install [Valheim Server](https://steamdb.info/app/896660/): `app_update 896660`
 - Exit SteamCMD: `exit`
+- Install Valheim dependencies (see Valheim Dedicated Server Manual.pdf):
+```
+sudo apt install libatomic1
+sudo apt install libpulse-dev
+sudo apt install libpulse0
+```
 
 ## Create Swap File
 You should create a [Swap file](https://linuxize.com/post/create-a-linux-swap-file/) to allow the OS to swap memory to the disk, when the system runs low on memory (otherwise your Valheim Server might crash)
@@ -289,5 +295,3 @@ Useful commands:
 - check the logs: `cat /var/log/messages | grep -i "valheim-daemon"` or `tail -f -n 200 /var/log/messages`
 - view all processes (the server should appear as 'valheim_server'): `top`
 - check if the valheim process is running: `ps -A | grep -i "valheim"`
-
-TODO install  libatomic1, libpulse0, and libpulse-dev for crossplay support
