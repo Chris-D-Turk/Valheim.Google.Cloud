@@ -39,6 +39,10 @@ if [[ $auto_update = "true" ]]; then
     ~/Steam/steamcmd.sh +login anonymous +app_update 896660 +quit
 fi
 
+if [[ $crossplay = "true" ]]; then
+    crossplay_arg = "-crossplay"
+fi
+
 log "Initialising noip.com DynDNS..."
 sudo noip2
 
@@ -52,7 +56,7 @@ trap "handle_interrupt" SIGINT SIGTERM
 # NOTE: Minimum password length is 5 characters & Password cant be in the server name.
 # NOTE: You need to make sure the ports 2456-2458 is being forwarded to your server through your local router & firewall.
 log "Starting server PRESS CTRL-C to exit"
-./valheim_server.x86_64 -name "$server_name" -port 2456 -world "$world_name" -password "$server_password" & serverpid=$!
+./valheim_server.x86_64 -name "$server_name" -port 2456 -world "$world_name" $crossplay_arg -password "$server_password" & serverpid=$!
 
 log "Server-PID is $serverpid"
 

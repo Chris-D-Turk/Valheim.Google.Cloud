@@ -6,3 +6,4 @@ backup_enabled=true
 backup_remote_dir="valheim.backup"
 mega_session=""
 auto_update=true
+crossplay=true
