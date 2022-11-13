@@ -41,7 +41,7 @@ Some notes before we start:
 - Select a machine configuration - "e2-small" is sufficient for two players based on my experience if you enable "Memory Swapping" (see below).
 You can also select a bigger configuration, as your first 90 days are free nonetheless.  
 **Note:** I only tested this configuration with two players - you may need a bigger machine, if you want to handle up to 10 players. You can upgrade the machine type anytime, if the VM runs low on resources (see [Changing the machine type of a VM instance](https://cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance))
-- The default boot disk (10GB / Debian 10) is fine
+- The default boot disk (10GB / Debian 11) is fine
 - Enter the Network tag "valheim" under "Networking"
 - Click "Create"
 
@@ -176,9 +176,9 @@ Then hit "Escape" and type `:wq!` to save the changes to the file.
 
 ## Optional: Install MegaCMD
 You can skip this step, if you don't want the server to automatically backup your worlds to the [mega.nz Cloud](https://mega.nz/)
-- Download the Debian 10 Version of MegaCMD: https://mega.nz/cmd 
+- Download the Debian 11 Version of MegaCMD: https://mega.nz/cmd 
 - Upload the package to your VM using the SSH window (cog symbol in the top/right corner and than "Upload File")
-- Install the uploaded package: `sudo apt install ~/megacmd-Debian_10.0_amd64.deb`
+- Install the uploaded package: `sudo apt install ~/megacmd-Debian_11_amd64.deb`
 - Then login to your Mega.nz account: `mega-login [email] [password]` 
 - Note: the session stays alive even after system reboot - you can manually logout using `mega-logout` or by terminating the session in the mega.nz web interface.
 - Enter `mega-session` to get the session id (you will need this later to setup the backup)
