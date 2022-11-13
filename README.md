@@ -41,7 +41,7 @@ Some notes before we start:
 - Select a machine configuration - "e2-small" is sufficient for two players based on my experience if you enable "Memory Swapping" (see below).
 You can also select a bigger configuration, as your first 90 days are free nonetheless.  
 **Note:** I only tested this configuration with two players - you may need a bigger machine, if you want to handle up to 10 players. You can upgrade the machine type anytime, if the VM runs low on resources (see [Changing the machine type of a VM instance](https://cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance))
-- The default boot disk (10GB / Debian 10) is fine
+- The default boot disk (10GB / Debian 11) is fine
 - Enter the Network tag "valheim" under "Networking"
 - Click "Create"
 
@@ -140,7 +140,7 @@ Execute the following commands to install [SteamCMD](https://developer.valvesoft
 - Create Steam directory: `mkdir ~/Steam && cd ~/Steam`
 - Install SteamCMD dependencies: 
 ```
-sudo apt install lib32gcc1
+sudo apt install lib32gcc-s1
 sudo apt install zip
 sudo apt install unzip
 ```
@@ -152,6 +152,12 @@ Execute the following SteamCMD commands to install the Valheim Dedicated Server:
 - Login: `login anonymous`
 - Install [Valheim Server](https://steamdb.info/app/896660/): `app_update 896660`
 - Exit SteamCMD: `exit`
+- Install Valheim Server dependencies (see Valheim Dedicated Server Manual.pdf):
+```
+sudo apt install libatomic1
+sudo apt install libpulse-dev
+sudo apt install libpulse0
+```
 
 ## Create Swap File
 You should create a [Swap file](https://linuxize.com/post/create-a-linux-swap-file/) to allow the OS to swap memory to the disk, when the system runs low on memory (otherwise your Valheim Server might crash)
@@ -170,9 +176,9 @@ Then hit "Escape" and type `:wq!` to save the changes to the file.
 
 ## Optional: Install MegaCMD
 You can skip this step, if you don't want the server to automatically backup your worlds to the [mega.nz Cloud](https://mega.nz/)
-- Download the Debian 10 Version of MegaCMD: https://mega.nz/cmd 
+- Download the Debian 11 Version of MegaCMD: https://mega.nz/cmd 
 - Upload the package to your VM using the SSH window (cog symbol in the top/right corner and than "Upload File")
-- Install the uploaded package: `sudo apt install ~/megacmd-Debian_10.0_amd64.deb`
+- Install the uploaded package: `sudo apt install ~/megacmd-Debian_11_amd64.deb`
 - Then login to your Mega.nz account: `mega-login [email] [password]` 
 - Note: the session stays alive even after system reboot - you can manually logout using `mega-logout` or by terminating the session in the mega.nz web interface.
 - Enter `mega-session` to get the session id (you will need this later to setup the backup)
@@ -227,14 +233,16 @@ Enter the following parameters:
 server_name=""
 server_password=""
 world_name=""
+crossplay=true
 backup_enabled=true
 backup_remote_dir="valheim.backup"
 mega_session=""
 auto_update=true
 ```
 - **server_name**: Your server's name how it appears in the in-game server browser
-- **world_name**: Your world's name (must match the name of your world uploaded in the previous step)
 - **server_password**: The password needed to connect in-game (Minimum password length is 5 characters & Password cant be in the server name)
+- **world_name**: Your world's name (must match the name of your world uploaded in the previous step)
+- **crossplay**: Enables the crossplay backend (PlayFab). Set this to 'true', if you want to have non-Steam players on your server
 - **backup_enabled**: Set this to 'false', if you don't want to backup your worlds to the mega.nz cloud
 - **mega_session**: This is the mega.nz login session ID used to upload world backups (see step "Install MegaCMD")
 - **auto_update**: Automatically update the Dedicated Server via steamcmd
@@ -285,6 +293,6 @@ Now you should be able to connect to your server in-game using the External IP s
 Useful commands:
 - query the Valheim Daemon status: `sudo systemctl status valheim.service` 
 - start/stop the Valheim Daemon: `sudo systemctl start/stop valheim.service` 
-- check the logs: `cat /var/log/messages | grep -i "valheim-daemon"`
+- check the logs: `cat /var/log/messages | grep -i "valheim-daemon"` or `tail -f -n 200 /var/log/messages`
 - view all processes (the server should appear as 'valheim_server'): `top`
 - check if the valheim process is running: `ps -A | grep -i "valheim"`
