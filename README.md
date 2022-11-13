@@ -152,7 +152,7 @@ Execute the following SteamCMD commands to install the Valheim Dedicated Server:
 - Login: `login anonymous`
 - Install [Valheim Server](https://steamdb.info/app/896660/): `app_update 896660`
 - Exit SteamCMD: `exit`
-- Install Valheim dependencies (see Valheim Dedicated Server Manual.pdf):
+- Install Valheim Server dependencies (see Valheim Dedicated Server Manual.pdf):
 ```
 sudo apt install libatomic1
 sudo apt install libpulse-dev
@@ -233,14 +233,15 @@ Enter the following parameters:
 server_name=""
 server_password=""
 world_name=""
+crossplay=true
 backup_enabled=true
 backup_remote_dir="valheim.backup"
 mega_session=""
 auto_update=true
 ```
 - **server_name**: Your server's name how it appears in the in-game server browser
-- **world_name**: Your world's name (must match the name of your world uploaded in the previous step)
 - **server_password**: The password needed to connect in-game (Minimum password length is 5 characters & Password cant be in the server name)
+- **world_name**: Your world's name (must match the name of your world uploaded in the previous step)
 - **crossplay**: Enables the crossplay backend (PlayFab). Set this to 'true', if you want to have non-Steam players on your server
 - **backup_enabled**: Set this to 'false', if you don't want to backup your worlds to the mega.nz cloud
 - **mega_session**: This is the mega.nz login session ID used to upload world backups (see step "Install MegaCMD")
