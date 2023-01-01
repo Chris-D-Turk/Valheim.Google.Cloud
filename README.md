@@ -38,7 +38,7 @@ Some notes before we start:
 - Click "Create Instance"
 - Enter a suitable name for your VM like "valheim"
 - Select a region based on your players' location
-- Select a machine configuration - "e2-small" is sufficient for two players based on my experience if you enable "Memory Swapping" (see below).
+- Select a machine configuration - "e2-medium"[^1] is sufficient for two players based on my experience if you enable "Memory Swapping" (see below).  
 You can also select a bigger configuration, as your first 90 days are free nonetheless.  
 **Note:** I only tested this configuration with two players - you may need a bigger machine, if you want to handle up to 10 players. You can upgrade the machine type anytime, if the VM runs low on resources (see [Changing the machine type of a VM instance](https://cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance))
 - The default boot disk (10GB / Debian 11) is fine
@@ -50,6 +50,8 @@ You can also select a bigger configuration, as your first 90 days are free nonet
 <br/>
 The VM should appear as online after some seconds:
 <img src="./screenshots/vm-created.png" alt="vm-created.png" width="400px" />
+
+[^1]: Update 20230101 Valheim needs more memory since Mistlands ([see Reddit comment](https://www.reddit.com/r/valheim/comments/pw5bs0/comment/j2ivvmd/?utm_source=share&utm_medium=web2x&context=3))
 
 ## Connect via SSH
 For some of the following steps you will need a SSH connection to your VM (to execute shell commands)
